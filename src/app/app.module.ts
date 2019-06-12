@@ -7,18 +7,21 @@ import { DemoService } from './demo.service';
 import { Demo2Service } from './demo2.service';
 import { LightSwichComponent } from './light-swich/light-swich.component';
 import { BannerComponent } from './banner/banner.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LightSwichComponent,
-    BannerComponent
+    BannerComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [DemoService, Demo2Service],
+  providers: [DemoService, Demo2Service, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
