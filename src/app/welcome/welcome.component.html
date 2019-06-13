@@ -1,1 +1,3 @@
-<h3 class="welcome"><i>{{welcome}}</i></h3>
+<h3 class="welcome" *ngIf="data.isLoggedIn"><i>{{data.user}}，{{data.message}}！</i></h3>
+<h3 class="error" *ngIf="!data.isLoggedIn">未授權，請登入！</h3>
+<button (click)="login()"  [disabled]="data.isLoggedIn">登入</button>

@@ -7,12 +7,21 @@ import { UserService } from '../user.service';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
-  welcome: string;
-  constructor(private userService: UserService) { }
+  data = {
+    isLoggedIn: false,
+    user: '',
+    message: ''
+  };
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
-    this.welcome = this.userService.isLoggedIn ?
-      `歡迎, ${this.userService.user.name}` : `未授權, 請登入！`;
   }
-
+  login() {
+    this.userService.getData().subscribe((result) => {
+      this.data = result;
+    },
+    (error) => {
+      console.log('錯誤資訊', error);
+    });
+  }
 }
